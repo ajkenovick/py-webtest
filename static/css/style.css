@@ -1,0 +1,1255 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Reset
+2.0 General styles
+3.0 Forms
+4.0 Navigation
+    4.1 Links
+5.0 Accessibility
+6.0 Alignments
+7.0 Clearings
+8.0 Content
+9.0 Media queries
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Reset
+--------------------------------------------------------------*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    border: 0;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+html {
+    font-size: 62.5%;
+    /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
+    /*overflow-y: scroll;*/
+    /* Keeps page centered in all browsers regardless of content height */
+    -webkit-text-size-adjust: 100%;
+    /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+    -ms-text-size-adjust: 100%;
+    /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+    /*height: 100%;*/
+    margin: 0;
+    padding: 0;
+}
+
+*, *:before, *:after {
+    /* apply a natural box layout model to all elements; see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+    -webkit-box-sizing: border-box;
+    /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
+    -moz-box-sizing: border-box;
+    /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff;
+    /* Fallback for when there is no custom background color defined. */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url("../../static/images/comida_fondo.png");   
+}
+
+article, aside, details, figcaption, figure, footer, header, main, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    /* tables still need 'cellspacing="0"' in the markup */
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+caption, th, td {
+    font-weight: normal;
+    text-align: left;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+}
+
+blockquote, q {
+    quotes: "" "";
+}
+
+ a:focus {
+    outline: thin dotted;
+} 
+
+a:hover, a:active {
+    outline: 0;
+    text-decoration: none;
+}
+
+a img {
+    border: 0;
+}
+
+/*--------------------------------------------------------------
+2.0 General styles
+--------------------------------------------------------------*/
+
+@font-face {
+    font-family: "giorgioregular";
+    src: url("./fonts/giorgio-webfont.woff2") format("woff2"),
+         url("./fonts/giorgio.ttf") format("truetype"),
+         url("./fonts/giorgio-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+    background-color: #fff;
+    font-family: 'Open Sans', sans-serif, 'giorgioregular'; 
+    font-size: 14px;
+    /*line-height: 1.1;*/
+    /* color: #4c4c4c; */
+    padding-top: 131px;
+     /* background: #F8EFBA;  */
+     background-image: url("../../static/images/comida_fondo.png");  
+
+     
+}
+
+p {
+    font-family: 'giorgioregular', sans-serif ;
+    font-size: 14px;
+    /*line-height: 1.1;*/
+    color: #000; /*#4c4c4c*/
+    margin-bottom: 10px;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+    border: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'giorgioregular', sans-serif;
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 40px;
+    color: #bb141b;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 22px;
+    color: #bb141b;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 18px;
+    color: #bb141b;; /*4c4c4c*/
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 16px;
+    color: #bb141b;;
+    margin-bottom: 8px;
+}
+
+h5 {
+    font-size: 14px;
+    color: #bb141b;
+    margin-bottom: 5px;
+}
+
+h6 {
+    font-size: 12px;
+    color: #bb141b;;
+    margin-bottom: 5px;
+}
+
+a {
+    transition: all .2s ease-in-out;
+}
+
+.scale:hover {
+    transform: scale(1.1);
+}
+
+h1.section-title {
+ /* padding: 0px 0 0px 200px; */  /* arriba, abajo, der, izq*/ 
+    text-align: center; 
+    text-shadow: #4c4c4c;
+    /* margin: 0 0 20px 20px;  */
+    /* background: url(../images/title-bg.png) no-repeat left top; */
+}
+
+ul {
+    font-family: 'giorgioregular', sans-serif;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul li {
+    /* background-image: url(../images/bullet.png); */
+    /* background-repeat: no-repeat;
+    background-position: 0px 3px; */
+    padding-left: 20px;
+}
+
+ ul.lista-sabores li {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.bxslider li, .bxslider-galeria li, .bxslider-fotos li {
+    background: none;
+    padding-left: 0;
+}
+
+.bxslider-fotos li {
+    /*height: 200px;
+    overflow: hidden;*/
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+span.highlight {
+    font-weight: bold;
+    color: #bb141b;
+}
+
+span.highlight2 {
+    font-weight: bold;
+    color: #f36e21;
+    font-size: 30px;
+}
+
+span.highlight3 {
+    font-weight: bold;
+    color: #bb141b;
+    font-size: 30px;
+}
+
+span.highlight4 {
+    color: #bb141b;
+}
+
+.page h3 {
+    color: #f36e21;
+}
+
+#form-messages {
+    padding: 17px 0;
+}
+
+.error {
+    color: #bb141b;
+    font-size: 18px;
+    font-family: 'giorgioregular', sans-serif;
+}
+
+.success {
+    color: #419641;
+    font-size: 18px;
+    font-family: 'giorgioregular', sans-serif;
+}
+
+/*--------------------------------------------------------------
+3.0 Forms
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+4.0 Navigation
+--------------------------------------------------------------*/
+
+.navbar-default {
+    background: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: 0 none;
+    padding: 20px 0 10px;
+    /* background-color: #fff;   */
+    margin-bottom: 0;
+
+    /* background-image: url("../../static/images/518.png"); */
+
+     background: #fff;
+     /* background-image: url("../../static/images/zenbg-1.png"), url("../../static/images/zenbg-2.png");
+     background-repeat: repeat-x, repeat; */
+
+
+    
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover, .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    background: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: 0 none;
+    color: #bb141b;
+    text-decoration: underline;
+    background-color: #fff;
+}
+
+.navbar-nav>li {
+    margin-top: 15px;
+    background: none;
+    padding-left: 0;
+}
+
+.navbar-nav .dropdown-menu li {
+    background: none;
+    padding-left: 0;
+}
+
+.navbar-nav>li>a {
+    text-shadow: 0 none;
+}
+
+.navbar-nav {
+    font-family: 'giorgioregular', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.dropdown-menu>li>a {
+    font-weight: 300;
+}
+
+/*--------------------------------------------------------------
+4.1 Links
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+5.0 Accessibility
+--------------------------------------------------------------*/
+
+/* Text meant only for screen readers */
+
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+.screen-reader-text:hover, .screen-reader-text:active, .screen-reader-text:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    color: #21759b;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar */
+}
+
+/*--------------------------------------------------------------
+6.0 Alignments
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+7.0 Clearings
+--------------------------------------------------------------*/
+
+.clear:before, .clear:after, .entry-content:before, .entry-content:after, .comment-content:before, .comment-content:after, .site-header:before, .site-header:after, .site-content:before, .site-content:after, .site-footer:before, .site-footer:after {
+    content: "";
+    display: table;
+}
+
+.clear:after, .entry-content:after, .comment-content:after, .site-header:after, .site-content:after, .site-footer:after {
+    clear: both;
+}
+
+/*--------------------------------------------------------------
+8.0 Content
+--------------------------------------------------------------*/
+
+.page.container {
+    padding-bottom: 60px;
+}
+
+/*--------------------------------------------------------------
+8.1 Home
+--------------------------------------------------------------*/
+
+.banner-home {
+    height: 500px;
+    background: url(../images/fondo-home.png) no-repeat right top;
+    position: relative;
+}
+
+.banner-home a {
+    font-family: 'giorgioregular', sans-serif;
+    font-size: 20px;
+    font-weight: 280;
+    cursor: pointer;
+    transform-origin: left center;
+}
+
+.banner-home a:hover {
+    text-decoration: none;
+}
+
+#btn-home-seminarios {
+    position: absolute;
+    color: #bb141b;
+    top: 66px;
+    right: 1004px;
+}
+
+#btn-home-coaching {
+    position: absolute;
+    color: #a019b9;
+    top: 92px;
+    right: 789px;
+}
+
+#btn-home-freshbiz {
+    position: absolute;
+    color: #db1c8b;
+    top: 92px;
+    right: 662px;
+}
+
+#btn-home-programas {
+    position: absolute;
+    color: #3bb919;
+    top: 225px;
+    left: 62px;
+}
+
+#btn-home-outdoors {
+    position: absolute;
+    color: #f36e21;
+    top: 264px;
+    right: 905px;
+}
+
+#btn-home-lego {
+    position: absolute;
+    color: #865c22;
+    top: 304px;
+    right: 725px;
+}
+
+#btn-home-disc {
+    position: absolute;
+    color: #153ed6;
+    top: 440px;
+    right: 985px;
+}
+
+.container.home {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+h2.texto-home {
+    color: #777;
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.4;
+}
+
+/*--------------------------------------------------------------
+Servicios
+--------------------------------------------------------------*/
+
+.slider-servicios .bx-wrapper {
+    margin: 0;
+    padding-left: 50px;
+}
+
+.slider-servicios .bx-wrapper .bx-viewport {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: 0 none;
+    background: none;
+}
+
+.slider-servicios #bx-pager a {
+    display: block;
+    color: #4c4c4c;
+    font-family: 'giorgioregular', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 4px 70px 5px 0;
+    transform-origin: left center;
+    text-decoration: none;
+    background-position: right center;
+    padding-left: 20px;
+    background: url(../images/bullet.png) no-repeat left center;
+}
+
+.slider-servicios #bx-pager a.active {
+    font-size: 22px;
+    color: #bb141b;
+    margin-right: -34px;
+    padding: 12px 70px 5px 25px;
+    background: url(../images/bullet-big.png) no-repeat left top;
+}
+
+.slider-servicios #bx-pager a:focus {
+    outline: 0;
+}
+
+.slider-servicios h2 {
+    margin-top: 10px;
+}
+
+#pointer {
+    position: absolute;
+    right: -19px;
+    top: 12px;
+}
+
+.slider-servicios .bxslider li {
+    display: none;
+}
+
+.slider-servicios .bxslider li img {
+    width: 85%;
+}
+
+.slider-servicios .bxslider li img, .slider-servicios .bxslider li span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.slider-servicios .bxslider li span {
+    padding-left: 28px;
+    width: 50%;
+    text-align: justify;
+}
+
+.slider-servicios .bxslider ul li {
+    background-image: url(../images/bullet.png);
+    background-repeat: no-repeat;
+    background-position: 0px 3px;
+    padding-left: 20px;
+}
+
+.fixed-slider-content {
+    position: fixed;
+    top: 0px;
+}
+
+#seminarios .slider-servicios #bx-pager {
+    background: transparent url(../images/dashed-seminarios.png) repeat-y right center;
+}
+
+#coaching .slider-servicios #bx-pager {
+    background: transparent url(../images/dashed-coaching.png) repeat-y right center;
+}
+
+#outdoors .slider-servicios #bx-pager {
+    background: transparent url(../images/dashed-outdoors.png) repeat-y right center;
+}
+
+#disc .slider-servicios #bx-pager {
+    background: transparent url(../images/dashed-disc.png) repeat-y right center;
+}
+
+#programas .slider-servicios #bx-pager {
+    background: transparent url(../images/dashed-programas.png) repeat-y right center;
+}
+
+#lego .slider-servicios #bx-pager {
+    background: transparent url(../images/dashed-lego.png) repeat-y right center;
+}
+
+#freshzbiz .slider-servicios #bx-pager {
+    background: transparent url(../images/dashed-freshbiz.png) repeat-y right center;
+}
+
+/*--
+Metodología
+---*/
+
+.container-mapa {
+    width: 100%;
+    height: 525px;
+}
+
+#mapa-metodologia {
+    max-width: inherit !important;
+}
+
+.punto-mapa {
+    position: absolute;
+    cursor: pointer;
+}
+
+.punto-mapa#colombia {
+    top: 256px;
+    left: 210px;
+}
+
+.punto-mapa#peru {
+    top: 315px;
+    left: 202px;
+}
+
+.punto-mapa#venezuela {
+    top: 252px;
+    left: 241px;
+}
+
+.punto-mapa#brasil {
+    top: 318px;
+    left: 295px;
+}
+
+.punto-mapa#mexico {
+    top: 193px;
+    left: 115px;
+}
+
+.punto-mapa#nicaragua {
+    top: 231px;
+    left: 172px;
+}
+
+.punto-mapa#panama {
+    top: 249px;
+    left: 185px;
+}
+
+.punto-mapa#usa {
+    top: 120px;
+    left: 134px;
+}
+
+.punto-mapa#salvador {
+    top: 231px;
+    left: 157px;
+}
+
+.punto-mapa#paraguay {
+    top: 369px;
+    left: 276px;
+}
+
+.punto-mapa#guatemala {
+    top: 221px;
+    left: 151px;
+}
+
+.punto-mapa#ecuador {
+    top: 284px;
+    left: 195px;
+}
+
+.over-mapa {
+    position: absolute;
+    top: 172px;
+    left: 244px;
+}
+
+/** Galeria  */
+
+/*.bxslider-fotos img {
+    width: 80%;
+}*/
+
+.slider-galeria .col-md-8 {
+    padding-left: 50px;
+}
+
+.slider-galeria .bx-wrapper {
+    margin: 0;
+}
+
+/*.slider-galeria .bx-wrapper .bx-viewport {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: 0 none;
+    background: none;
+}*/
+
+.slider-galeria #bx-pager a {
+    display: block;
+    color: #4c4c4c;
+    font-family: 'giorgioregular', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 4px 70px 4px 0;
+    transform-origin: left center;
+    text-decoration: none;
+    background-position: right center;
+    padding-left: 20px;
+    background: url(../images/bullet.png) no-repeat left center;
+}
+
+.slider-galeria #bx-pager a.active {
+    font-size: 22px;
+    color: #bb141b;
+    margin-right: -34px;
+    padding: 12px 70px 12px 25px;
+    background: url(../images/bullet-big.png) no-repeat left top;
+}
+
+.slider-galeria #bx-pager a:focus {
+    outline: 0;
+}
+
+.slider-galeria .bxslider li {
+    display: none;
+}
+
+.slider-galeria .bxslider li img {
+    margin: 0 auto;
+}
+
+/*.slider-galeria .bxslider li img {
+    width: 90%;
+}
+
+.slider-galeria .bxslider li img,
+.slider-galeria .bxslider li span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.slider-galeria .bxslider li span {
+    padding-left: 30px;
+    width: 60%;
+    text-align: justify;
+}*/
+
+.bxslider-galeria .bx-wrapper .bx-pager {
+    bottom: 10px;
+}
+
+.bxslider-galeria .bx-wrapper .bx-pager.bx-default-pager a.active {
+    background-color: #bb141b;
+}
+
+.bxslider-galeria .bx-wrapper .bx-pager.bx-default-pager a {
+    background-color: #FFF;
+}
+
+.bxslider-galeria .bx-controls {
+    width: 100%;
+}
+
+.slider-galeria .bx-wrapper .bx-viewport {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.bx-wrapper .bx-prev {
+    left: 0;
+}
+
+.bx-wrapper .bx-next {
+    right: 0;
+}
+
+/** Contáctenos **/
+
+#contactenos .datos-contacto span.glyphicon {
+    margin-right: 10px;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 35%;
+    /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+}
+
+.map-container .map-canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*--------------------------------------------------------------
+Footer
+--------------------------------------------------------------*/
+
+footer {
+    /* background-color: #ffeaa7; */
+
+     /* fallback for old browsers */
+     background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);
+     /* Chrome 10-25, Safari 5.1-6 */
+     background: linear-gradient(to right, #FFFFFF, #FFEFBA);
+     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'giorgioregular', sans-serif;
+    padding-top: 15px;
+    font-size: 12px;
+    line-height: 1.1;
+}
+
+footer a {
+    color: #707070;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer .lista-sabores li {
+
+    /* list-style-image: url(../images/boton.png); */
+    list-style: none;
+   
+}
+
+footer li {
+    background: none;
+    padding-left: 0;
+}
+
+footer .sitemap {
+    border-right: 1px solid #f3a683;
+}
+
+footer .sitemap li {
+   
+    margin-bottom: 10px;
+}
+
+.sitemap .social a {
+    color: #ad2b13;
+    font-size: 3em;
+}
+
+.logo-footer {
+    margin-bottom: 20px;
+}
+
+.productos-footer h4 {
+    margin: 10px 0;
+    padding-bottom: 3px;
+}
+
+.productos-footer ul.lista-sabores li {
+ 
+    margin-bottom: 10px;
+}
+
+h4#yogur-footer {
+    border-bottom: 2px solid #ad2b13;
+}
+
+h4#arroz-footer {
+    border-bottom: 2px solid #ad2b13;
+}
+
+h4#maracuya-footer {
+    border-bottom: 2px solid #ad2b13;
+}
+
+p.big {
+    font-family: 'giorgioregular', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 20px 0 30px;
+}
+
+a#calltoaction-pedidos {
+  
+    font-size: 20px;
+    padding: 20px 39px;
+    background: url(../images/btn-pedidos.png) no-repeat center;
+    text-shadow: 0px -1px 0px rgba(171, 72, 18, 0.5);
+    color: #fff;
+}
+
+.footer-text {
+    padding: 6px 0;
+    background-color: #ad2b13;
+    margin-top: 20px;
+}
+
+.footer-text .copyright {
+    color: #fff;
+    font-size: 12px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.footer-text .social a {
+    color: #fff;
+    font-size: 2em;
+}
+
+/*--------------------------------------------------------------
+9.0 Media queries
+--------------------------------------------------------------*/
+
+@media (max-width: 1243px) {
+    /** Home **/
+    .banner-home {
+        background: url(../images/fondo-home.png) no-repeat left top;
+    }
+    #btn-home-seminarios {
+        top: 66px;
+        right: auto;
+        left: 149px;
+    }
+    #btn-home-coaching {
+        top: 92px;
+        right: auto;
+        left: 398px;
+    }
+    #btn-home-freshbiz {
+        top: 228px;
+        right: auto;
+        left: 476px;
+    }
+    #btn-home-programas {
+        top: 225px;
+        right: auto;
+        left: 10px;
+    }
+    #btn-home-outdoors {
+        top: 264px;
+        right: auto;
+        left: 263px;
+    }
+    #btn-home-lego {
+        top: 334px;
+        right: auto;
+        left: 283px;
+    }
+    #btn-home-disc {
+        top: 440px;
+        right: auto;
+        left: 142px;
+    }
+}
+
+@media (max-width: 991px) {
+    .logo {
+        padding-left: 10px;
+    }
+    .logo img {
+        max-width: 251px;
+        width: 60%;
+    }
+    /** Home **/
+    .banner-home {
+        background: url(../images/fondo-home-991.png) no-repeat left top;
+        height: 444px;
+    }
+    #btn-home-seminarios {
+        top: 51px;
+        left: 118px;
+    }
+    #btn-home-coaching {
+        top: 70px;
+        left: 300px;
+    }
+    #btn-home-freshbiz {
+        top: 206px;
+        left: 378px;
+    }
+    #btn-home-programas {
+        top: 177px;
+        left: 20px;
+    }
+    #btn-home-outdoors {
+        top: 209px;
+        left: 209px;
+    }
+    #btn-home-lego {
+        top: 279px;
+        left: 229px;
+    }
+    #btn-home-disc {
+        top: 349px;
+        left: 96px;
+    }
+    /** Servicios **/
+    #bx-pager {
+        display: none;
+    }
+    .slider-servicios img {
+        display: block;
+        margin-bottom: 10px;
+    }
+    /** Metodología **/
+    .container-mapa {
+        overflow: hidden;
+    }
+    /** Footer **/
+    .footer-text .social {
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 767px) {
+    h1.section-title {
+        padding: 48px 0 21px 0;
+        background: none;
+    }
+    /** Home **/
+    .banner-home {
+        background: url(../images/fondo-home-767.png) no-repeat left top;
+        height: 344px;
+    }
+    .banner-home a {
+        font-size: 16px;
+    }
+    #btn-home-seminarios {
+        top: 30px;
+        left: 25px;
+    }
+    #btn-home-coaching {
+        top: 54px;
+        left: 152px;
+    }
+    #btn-home-freshbiz {
+        top: 190px;
+        left: 230px;
+    }
+    #btn-home-programas {
+        top: 137px;
+        left: 20px;
+    }
+    #btn-home-outdoors {
+        top: 161px;
+        left: 81px;
+    }
+    #btn-home-lego {
+        top: 231px;
+        left: 101px;
+    }
+    #btn-home-disc {
+        top: 270px;
+        left: 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    .col-mapa {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: -52px;
+    }
+}
+
+/*--------------------------------------------------------------
+10.0 Error 404
+--------------------------------------------------------------*/
+#notfound {
+    position: relative;
+    height: 100vh;
+    background: #f6f6f6;
+  }
+  
+  #notfound .notfound {
+    position: absolute;
+  
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  
+  .notfound {
+    margin: 0 auto;
+    max-width: 767px;
+    width: 100%;
+    line-height: 1.4;
+    padding: 110px 40px;
+    text-align: center;
+    /* background: #fff; */
+    /* -webkit-box-shadow: 0 15px 15px -10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 15px -10px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .notfound .notfound-404 {
+    /* margin: 0 auto; */
+    position: relative;
+    height: 180px;
+  }
+  
+  .notfound .notfound-404 h1 {
+    font-family: 'giorgioregular', sans-serif;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    font-size: 165px;
+    font-weight: 700;
+    margin: 0px;
+    color: #262626;
+    text-transform: uppercase;
+
+  }
+  
+  .notfound .notfound-404 h1>span {
+    color: #ad2b13;  /*#00b7ff*/
+  }
+  
+  .notfound h2 {
+    font-family: 'giorgioregular', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #151515;
+    margin-top: 0px;
+    margin-bottom: 25px;
+  }
+  
+  .notfound .notfound-search {
+    position: relative;
+    max-width: 320px;
+    width: 100%;
+    margin: auto;
+  }
+  
+  .notfound .notfound-search>input {
+    font-family: 'giorgioregular', sans-serif;
+    width: 100%;
+    height: 50px;
+    padding: 3px 65px 3px 30px;
+    color: #151515;
+    font-size: 16px;
+    background: transparent;
+    border: 2px solid #c5c5c5;
+    border-radius: 40px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+  }
+  
+  .notfound .notfound-search>input:focus {
+    border-color: #00b7ff;
+  }
+  
+  .notfound .notfound-search>button {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .notfound .notfound-search>button>span {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+        -ms-transform: translate(-50%, -50%) rotate(-45deg);
+            transform: translate(-50%, -50%) rotate(-45deg);
+    margin-left: -3px;
+  }
+  
+  .notfound .notfound-search>button>span:after {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    left: 0px;
+    top: 0px;
+    border-radius: 50%;
+    border: 4px solid #c5c5c5;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+  }
+  
+  .notfound-search>button>span:before {
+    position: absolute;
+    content: '';
+    width: 4px;
+    height: 10px;
+    left: 7px;
+    top: 17px;
+    border-radius: 2px;
+    background: #c5c5c5;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+  }
+  
+  .notfound .notfound-search>button:hover>span:after {
+    border-color: #00b7ff;
+  }
+  
+  .notfound .notfound-search>button:hover>span:before {
+    background-color: #00b7ff;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .notfound h2 {
+      font-size: 18px;
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .notfound .notfound-404 h1 {
+      font-size: 141px;
+    }
+  }
+  
+
+/*--------------------------------------------------------------
+10.0 Tag Image
+--------------------------------------------------------------*/
+
+figure {
+    position: relative
+  }
+  figcaption {
+    position: absolute;
+    width: 320px;
+    line-height: 120px;
+     text-align: center; 
+    left: 0;
+    top: 0; 
+    text-shadow: 0 0 1px white;
+    font-weight:bold;
+    color: #000;
+  }

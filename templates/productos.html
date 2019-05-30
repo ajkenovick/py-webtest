@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+
+  <div class="container page" id="web-productos">
+    <h1 class="section-title">Nuestros productos</h1>
+    <hr/>
+    <div class="row">
+
+          <div class="col-md-4">
+              <ul class="lista-sabores">
+                  <a href="yogur_artesanal" aria-label="Yogur artesanal">
+                         <figure>
+                          <img src="../static/images/btn_yogur.png" />
+                         
+                        </figure>
+
+                  </a>
+              </ul>
+            </div>
+  
+            <div class="col-md-4">
+              <ul class="lista-sabores">
+
+                <a href="bolis_artesanal">
+                    <figure>
+                        <img src="../static/images/btn_bolis.png" />
+                        
+                      </figure>
+                </a>
+              </ul>
+            </div>
+       
+    </div>
+  </div>
+</div>
+
+{% endblock %}
