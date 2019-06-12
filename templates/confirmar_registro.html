@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="jumbotron">
-  
+
     <div class="container page" id="web-pedidos">
         <h1 class="section-title">Pedidos</h1>
         <hr />
@@ -14,16 +14,6 @@
             </div>
 
             <div class="col-md-4">
-                   
-                {% with messages = get_flashed_messages() %}  
-                    {% if messages  %}
-                      {% for message in messages %}
-                      <p style="background-color: brown; color: bisque;"> {{ message }} </p>
-                      {% endfor %}
-                    {% endif %}
-                    {% endwith %}
-                 
-
                 <form action="/login" method="POST" class="loginForm">
                     <h2>Iniciar sesión</h2>
                  

@@ -8,8 +8,8 @@ $(function () {
         $(this).parent().addClass("active");
     });
 
-  /*   $('.navbar-nav>li>a.active').removeClass("active");
-    $('.navbar-nav>li#' + $('body').attr('id')).addClass("active"); */
+    /*   $('.navbar-nav>li>a.active').removeClass("active");
+      $('.navbar-nav>li#' + $('body').attr('id')).addClass("active"); */
 
     /** Mobile **/
 
@@ -229,3 +229,124 @@ $(function () {
 
 
 });
+
+/* Test de verificador */
+
+
+
+/*     function checkForm(form)
+  {
+    
+    if(!form.terms.checked) {
+      alert("Please indicate that you accept the Terms and Conditions");
+      form.terms.focus();
+      return false;
+    }
+    return true;
+  } */
+
+   function checkForm(form)
+  {
+   /*  if(form.username.value == "") {
+      alert("Error: Username cannot be blank!");
+      form.username.focus();
+      return false;
+    }
+    re = /^\w+$/;
+    if(!re.test(form.username.value)) {
+      alert("Error: Username must contain only letters, numbers and underscores!");
+      form.username.focus();
+      return false;
+    } */
+    if(form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
+      if(!checkPassword(form.pwd1.value)) {
+        alert("The password you have entered is not valid!");
+        form.pwd1.focus();
+        return false;
+      }
+    } else {
+      alert("Error: Please check that you've entered and confirmed your password!");
+      form.pwd1.focus();
+      return false;
+    }
+    return true;
+  }
+
+
+/* var password = document.getElementById("pwd")
+  , confirm_password = document.getElementById("pwd2");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+ */
+
+
+
+//-------------------------------
+
+function docsChange(selectObj) {
+   var selectIndex=selectObj.selectedIndex;
+   var selectValue=selectObj.options[selectIndex].text;
+   var output=document.getElementById("surname");
+   //alert(output.innerText);
+   
+
+   if(selectValue=="NIT"){
+       output.disabled = true;
+       output.value = '';
+       output.required = false;
+   }else{
+       output.disabled = false;
+       output.value = '';
+       output.required = true;
+   }
+
+   //output.innerHTML=selectValue;
+ }
+
+
+ //----------------------------------------
+
+ function locChange(selectObj) {
+    var selectIndex=selectObj.selectedIndex;
+    var selectValue=selectObj.options[selectIndex].text;
+    var output=document.getElementById("colmun");
+    var local=document.getElementById("boglocation");
+    
+    if(selectValue=="Bogota, D.C."){
+        // output.prop('disabled', true);
+        output.disabled = true;
+        local.disabled = false;
+       
+    }else{
+        output.disabled = false;
+        local.disabled = true;
+  
+    }
+ 
+    //output.innerHTML=selectValue;
+  }
+
+ //---------------------------------------
+ 
+//--------------------------------------------
+
+/*function getCity(val) {
+	$.ajax({
+	type: "POST",
+	url: "{{ url_for('_update_dropdown') }}",
+	data:'state_id='+val,
+	success: function(data){
+		$("#city-list").html(data);
+	}
+	});
+}*/
+

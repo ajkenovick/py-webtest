@@ -2842,10 +2842,12 @@ input[type="search"] {
 }
 
 .form-group {
+    font-family: "giorgioregular";
     margin-bottom: 15px
 }
 
 .radio, .checkbox {
+    font-family: "giorgioregular";
     position: relative;
     display: block;
     margin-top: 10px;
@@ -4892,6 +4894,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 .label {
     display: inline;
+    font-family: "giorgioregular";
     padding: .2em .6em .3em;
     font-size: 75%;
     font-weight: bold;
