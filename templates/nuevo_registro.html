@@ -23,41 +23,61 @@
                         <input type="email" class="form-control" id="email" placeholder="Ingrese email" name="email"
                             pattern="[^ @]+@[^ @]+.[a-z]+" required>
                     </div>
-                    <div class="form-group">
+                   
+<!--  <div class="form-group">
                         <label for="pwd1">Contraseña:</label>
                         <input type="password" class="form-control" id="pwd1" placeholder="Contraseña" name="pwd1"
                             title="La contraseña debe cumplir lo indicado en el cuadro emergente."
                             pattern="(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,60}" required
                             onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');">
                         <input type="checkbox" onclick="viewPwd1()"> Mostrar contraseña
+                    </div> -->
+                    
+                    <div class="form-group">
+                        <label for="pwd1">Contraseña:</label>
+                        <input type="password" id="pwd1" name="pwd1" class="form-control" placeholder="Contraseña" data-toggle="password" title="La contraseña debe cumplir lo indicado en el cuadro emergente." pattern="(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,60}" required
+                        onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" 
+                        onkeyup="check();">
                     </div>
 
                     <div class="form-group">
+                        <label for="pwd2">Confirmar Contraseña: <span id='message'></span></label>
+                        <input type="password" id="pwd2" name="pwd2" class="form-control" placeholder="Confirmar contraseña" data-toggle="password"  title="Las contraseñas no coinciden." pattern="(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,60}" required
+                        onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');"
+                        onkeyup="check();">
+                        
+                    </div>
+
+
+
+                  <!--   <div class="form-group">
                         <label for="pwd2">Confirmar contraseña:</label>
                         <input type="password" class="form-control" id="pwd2" placeholder="Confirmar contraseña"
                             name="pwd2" title="Las contraseñas no coinciden."
                             pattern="(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,60}" required onchange="
                             this.setCustomValidity(this.validity.patternMismatch ? this.title : '');">
 
-                    </div>
+                    </div> -->
 
                     <div class="row-fluid form-group">
-                            <label for="seltipdoc">Tipo de documento:</label>
-                            
-                            <select class="selectpicker form-control show-tick show-menu-arrow" data-show-subtext="false" data-live-search="false" id="seltipdoc" name="seltipdoc" data-size="5" onchange="docsChange(this);" required data-header="Seleccione el tipo de documento"> 
-                                {% for tdocdata in tdocdatas %}
-    
-    
-                                <option value="{{ tdocdata.0 }}">
-                                    {{  tdocdata.1 }}
-                                </option>
-    
-    
-                                {% endfor %}
-                                
-                            </select>
-                           
-                        </div>
+                        <label for="seltipdoc">Tipo de documento:</label>
+
+                        <select class="selectpicker form-control show-tick show-menu-arrow" data-show-subtext="false"
+                            data-live-search="false" id="seltipdoc" name="seltipdoc" data-size="5"
+                            onchange="docsChange(this);" required data-header="Seleccione el tipo de documento">
+                            {% for tdocdata in tdocdatas %}
+
+
+                            <option value="{{ tdocdata.0 }}">
+                                {{  tdocdata.1 }}
+                            </option>
+
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
 
                     <div class="form-group">
                         <label for="numdoc">Número documento:</label>
@@ -89,16 +109,18 @@
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="address">Dirección domicilio:</label>
-                        <input type="text" class="form-control" id="address" placeholder="Dirección" name="address"  pattern="{10,100}" required>
+                        <input type="text" class="form-control" id="address" placeholder="Dirección" name="address"
+                            pattern="{10,100}" required>
 
                     </div>
 
 
                     <div class="row-fluid form-group">
                         <label for="coldept">Departamento:</label>
-                        <select class="selectpicker form-control show-tick show-menu-arrow" data-show-subtext="false" data-live-search="true" id="coldept"
-                            name="coldept" onchange="locChange(this);" data-size="5" required data-header="Seleccione el departamento">
-                        
+                        <select class="selectpicker form-control show-tick show-menu-arrow" data-show-subtext="false"
+                            data-live-search="true" id="coldept" name="coldept" 
+                            data-size="5" required data-header="Seleccione el departamento">
+
                             {% for deptdata in deptdatas %}
 
                             <option value="{{deptdata.0 }}">
@@ -113,14 +135,14 @@
                         <!--  <span class="help-inline">With <code>data-show-subtext="true" data-live-search="true"</code>. Try searching for california</span> -->
                     </div>
 
-                  
+
                     <div class="row-fluid form-group">
                         <label for="colmun">Municipio:</label>
-                        
-                        <select class="selectpicker form-control show-tick show-menu-arrow" data-show-subtext="false" data-live-search="true" id="colmun" name="colmun" data-size="5" data-header="Seleccione el municipio">
-                       
-                            {% for mundata in mundatas %}
+                        <select class="selectpicker form-control show-tick show-menu-arrow" data-show-subtext="false"
+                            data-live-search="true" id="colmun" name="colmun" data-size="5"
+                            data-header="Seleccione el municipio">
 
+                            {% for mundata in mundatas %}
 
                             <option value="{{ mundata.0 }}">
                                 {{  mundata.2 }}
@@ -133,61 +155,69 @@
                         </select>
                         <!--  <span class="help-inline">With <code>data-show-subtext="true" data-live-search="true"</code>. Try searching for california</span> -->
                     </div>
-              
-                <div class="form-group">
-                    <label for="district">Barrio:</label>
-                    <input type="text" class="form-control" id="district" placeholder="Barrio" name="district" required>
+
+                    <div class="form-group">
+                        <label for="district">Barrio:</label>
+                        <input type="text" class="form-control" id="district" placeholder="Barrio" name="district"
+                            required>
+                    </div>
+
+                    <div class="row-fluid form-group">
+                        <label for="boglocation">Localidad:</label>
+                        <select class="selectpicker form-control show-tick show-menu-arrow" id="boglocation"
+                            name="boglocation" data-live-search="true" data-size="5" data-dropup-auto="false"
+                            data-header="Seleccione la localidad">
+
+                            {% for locdata in locdatas %}
+
+                            <option value="{{ locdata.0 }}">
+                                {{  locdata.2 }}
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Teléfono de contacto:</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Teléfono de contacto"
+                            name="phone" pattern="[0-9]{7,20}" required>
+                    </div>
+
                 </div>
 
-                <div class="row-fluid form-group">
-                    <label for="boglocation">Localidad:</label>
-                    <select class="selectpicker form-control show-tick show-menu-arrow" id="boglocation" name="boglocation" data-live-search="true" data-size="5" data-dropup-auto="false" data-header="Seleccione la localidad">
-                                              
-                        {% for locdata in locdatas %}
+                <p><input id="field_terms" type="checkbox" required name="terms">
+                    <label for="field_terms">Acepto los <u>Términos y condiciones.</u></label></p>
 
-                        <option value="{{ locdata.0 }}">
-                            {{  locdata.2 }}
-                        </option>
-
-                        {% endfor %}
-
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Teléfono de contacto:</label>
-                    <input type="tel" class="form-control" id="phone" placeholder="Teléfono de contacto" name="phone"
-                        pattern="[0-9]{7,20}" required>
-                </div>
-              
-        </div>
-
-        <p><input id="field_terms" type="checkbox" required name="terms">
-            <label for="field_terms">Acepto los <u>Términos y condiciones.</u></label></p>
-
-        <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
-        </form>
-        <!-- Aqui finaliza el formulario de registro-->
+                <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+            </form>
+            <!-- Aqui finaliza el formulario de registro-->
 
 
-        <div id="pswd_info">
-            <h4>La contraseña debe tener los siguientes requerimientos:</h4>
-            <ul>
-                <li id="letter" class="invalid">Al menos <strong>una letra</strong></li>
-                <li id="capital" class="invalid">Al menos <strong>una MAYUSCULA</strong></li>
-                <li id="number" class="invalid">Al menos <strong>un dígito [0-9]</strong></li>
-                <li id="space" class="invalid">Al menos<strong> [~,!,@,#,$,%,^,&,*,-,=,.,;,']</strong></li>
-                <li id="length" class="invalid">Mínimo de <strong>8 carácteres</strong></li>
-            </ul>
+            <div id="pswd_info">
+                <h4>La contraseña debe tener los siguientes requerimientos:</h4>
+                <ul>
+                    <li id="letter" class="invalid">Al menos <strong>una letra</strong></li>
+                    <li id="capital" class="invalid">Al menos <strong>una MAYUSCULA</strong></li>
+                    <li id="number" class="invalid">Al menos <strong>un dígito [0-9]</strong></li>
+                    <li id="space" class="invalid">Al menos<strong> [~,!,@,#,$,%,^,&,*,-,=,.,;,']</strong></li>
+                    <li id="length" class="invalid">Mínimo de <strong>8 carácteres</strong></li>
+                </ul>
+            </div>
+
         </div>
 
     </div>
 
 </div>
 
-</div>
 
+<!-- <script type="text/javascript">
+    $("#password").password('toggle');
+    
+</script>
+ -->
 
-  
 
 {% endblock %}

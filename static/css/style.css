@@ -1501,3 +1501,12 @@ form ul li:last-child {
     text-align: center;
     margin: 20px 0 25px 0;
 }
+
+
+/*-----------------------*/
+
+#password + .glyphicon {
+    cursor: pointer;
+    pointer-events: all;
+  }
+ 

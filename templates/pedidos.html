@@ -18,11 +18,23 @@
                 {% with messages = get_flashed_messages() %}  
                     {% if messages  %}
                       {% for message in messages %}
-                      <p style="background-color: brown; color: bisque;"> {{ message }} </p>
+                      <div class="alert alert-success" role="alert">
+                         <b>  {{ message }} </b>
+                      </div>
+
+                     <!--  <p style="background-color: brown; color: bisque;"> {{ message }} </p> -->
                       {% endfor %}
                     {% endif %}
                     {% endwith %}
                  
+                    {% if error %}
+                       <!--  <p class=error style="background-color: red; color: white;"><strong>Error:</strong> {{ error }} -->
+                    
+                            <div class="alert alert-danger" role="alert">
+                                  <b>{{ error }}</b> 
+                            </div>
+                    
+                     {% endif %}
 
                 <form action="/login" method="POST" class="loginForm">
                     <h2>Iniciar sesión</h2>
@@ -30,16 +42,22 @@
 
                <div class="form-group">
                         <label for="email">Usuario (Email):</label>
-                        <input type="email" class="form-control" id="email" placeholder="Ingrese email" name="email">
+                        <input type="email" class="form-control" id="email" placeholder="Ingrese email" name="email" pattern="[^ @]+@[^ @]+.[a-z]+" required>
                     </div> 
 
-                 <div class="form-group">
+                <!--  <div class="form-group">
                         <label for="pwd">Password:</label>
                         <input type="password" class="form-control" id="pwd" placeholder="Ingrese contraseña (password)"
-                            name="pwd">
+                            name="pwd" pattern="{8,60}">
                      <input type="checkbox" onclick="viewPwd()"> Mostrar contraseña
-                           
-                    </div> 
+   
+                    </div>  -->
+
+                    <div class="form-group">
+                        <label for="pwd">Contraseña:</label>
+                        <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Ingrese contraseña" data-toggle="password" pattern="{8,60}" 
+                        >
+                    </div>
 
                     <div class="checkbox">
                         <label><input type="checkbox" name="remember"> Recuérdame</label>

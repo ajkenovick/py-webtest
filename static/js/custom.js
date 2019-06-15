@@ -312,7 +312,6 @@ function docsChange(selectObj) {
    //output.innerHTML=selectValue;
  }
 
-
  //----------------------------------------
 
  function locChange(selectObj) {
@@ -335,9 +334,29 @@ function docsChange(selectObj) {
     //output.innerHTML=selectValue;
   }
 
- //---------------------------------------
+ //-----------------------------------------
+ // toggle password visibility
+ $(".reveal").on('click',function() {
+    var $pwd = $(".pwd");
+    if ($pwd.attr('type') === 'password') {
+        $pwd.attr('type', 'text');
+    } else {
+        $pwd.attr('type', 'password');
+    }
+});
  
 //--------------------------------------------
+var check = function() {
+    if (document.getElementById('pwd1').value ==
+      document.getElementById('pwd2').value) {
+      document.getElementById('message').style.color = 'green';
+      document.getElementById('message').innerHTML = 'Coinciden';
+    } else {
+      document.getElementById('message').style.color = 'red';
+      document.getElementById('message').innerHTML = 'No coinciden';
+    }
+  }
+
 
 /*function getCity(val) {
 	$.ajax({
